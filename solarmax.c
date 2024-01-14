@@ -7,58 +7,60 @@ typedef struct {
     char name[50];
     char key[4];
     char unit[5];
+    char isData;
+    uint32_t value;
 }solarmax_cmd_type;
 
 
 solarmax_cmd_type solarmax_cmd[] =
 {
-{.name = "AC Power",                .key = "PAC", .unit = "mW" },
-{.name = "Operating hours",         .key = "KHR", .unit = "h" },
-{.name = "Date",                    .key = "DATE", .unit = "" },
-{.name = "Year",                    .key = "DYR", .unit = "" },
-{.name = "Month",                   .key = "DMT", .unit = "" },
-{.name = "Day",                     .key = "DDY", .unit = "" },
-{.name = "Energy this year",        .key = "KYR", .unit = "kWh" },
-{.name = "Energy this month",       .key = "KMT", .unit = "kWh" },
-{.name = "Energy today",            .key = "KDY", .unit = "kWh" },
-{.name = "Energy Total",            .key = "KT0", .unit = "kWh" },
+{.name = "AC Power",                .key = "PAC", .unit = "mW"      , .isData = 0,  .value = 0 },
+{.name = "Operating hours",         .key = "KHR", .unit = "h"       , .isData = 0,  .value = 0 },
+{.name = "Date",                    .key = "DATE", .unit = ""       , .isData = 0,  .value = 0 },
+{.name = "Year",                    .key = "DYR", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Month",                   .key = "DMT", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Day",                     .key = "DDY", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Energy this year",        .key = "KYR", .unit = "kWh"     , .isData = 0,  .value = 0 },
+{.name = "Energy this month",       .key = "KMT", .unit = "kWh"     , .isData = 0,  .value = 0 },
+{.name = "Energy today",            .key = "KDY", .unit = "kWh"     , .isData = 0,  .value = 0 },
+{.name = "Energy Total",            .key = "KT0", .unit = "kWh"     , .isData = 1,  .value = 0xA02 },
 #ifdef PULSE_SUPPORT
-{.name = "Pulse counter 1 year",    .key = "I1Y", .unit = "" },
-{.name = "Pulse counter 1 power",   .key = "I1P", .unit = "" },
-{.name = "Pulse counter 1 scaling", .key = "I1S", .unit = "" },
-{.name = "Pulse counter 1 day",     .key = "I1D", .unit = "" },
-{.name = "Pulse counter 1 Total",   .key = "I1T", .unit = "" },
-{.name = "Pulse counter 2 year",    .key = "I2Y", .unit = "" },
-{.name = "Pulse counter 2 power",   .key = "I2P", .unit = "" },
-{.name = "Pulse counter 2 scaling", .key = "I2S", .unit = "" },
-{.name = "Pulse counter 2 day",     .key = "I2D", .unit = "" },
-{.name = "Pulse counter 2 Total",   .key = "I2T", .unit = "" },
+{.name = "Pulse counter 1 year",    .key = "I1Y", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Pulse counter 1 power",   .key = "I1P", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Pulse counter 1 scaling", .key = "I1S", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Pulse counter 1 day",     .key = "I1D", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Pulse counter 1 Total",   .key = "I1T", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Pulse counter 2 year",    .key = "I2Y", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Pulse counter 2 power",   .key = "I2P", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Pulse counter 2 scaling", .key = "I2S", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Pulse counter 2 day",     .key = "I2D", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Pulse counter 2 Total",   .key = "I2T", .unit = ""        , .isData = 0,  .value = 0 },
 #endif
-{.name = "Installed capacity",      .key = "PIN", .unit = "" },
-{.name = "Network period duration", .key = "TNP", .unit = "us" },
-{.name = "Network address",         .key = "ADR", .unit = "" },
-{.name = "Relative power",          .key = "PRL", .unit = "" },
-{.name = "Software Version",        .key = "SWV", .unit = "" },
-{.name = "Solar energy year",       .key = "RYR", .unit = "" },
-{.name = "Solar energy day",        .key = "RDY", .unit = "" },
-{.name = "Solar energy total",      .key = "RT0", .unit = "" },
-{.name = "Solar radiation",         .key = "RAD", .unit = "" },
-{.name = "Voltage DC",              .key = "UDC", .unit = "" },
-{.name = "Voltage Phase 1",         .key = "UL1", .unit = "" },
-{.name = "Voltage Phase 2",         .key = "UL2", .unit = "" },
-{.name = "Voltage Phase 3",         .key = "UL3", .unit = "" },
-{.name = "Current DC",              .key = "IDC", .unit = "" },
-{.name = "Current Phase 1",         .key = "IL1", .unit = "" },
-{.name = "Current Phase 2",         .key = "IL2", .unit = "" },
-{.name = "Current Phase 3",         .key = "IL3", .unit = "" },
-{.name = "Tempereture section 1",   .key = "TKK", .unit = "" },
-{.name = "Temperature section 2",   .key = "TK2", .unit = "" },
-{.name = "Tenoerature section 3",   .key = "TK3", .unit = "" },
-{.name = "Solar Cells",             .key = "TSZ", .unit = "" },
-{.name = "Typ",                     .key = "TYP", .unit = "" },
-{.name = "Date",                    .key = "TIME", .unit = "" },
-{.name = "Minutes",                 .key = "TMI", .unit = "" },
-{.name = "Hour",                    .key = "THR", .unit = "" },
+{.name = "Installed capacity",      .key = "PIN", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Network period duration", .key = "TNP", .unit = "us"      , .isData = 0,  .value = 0 },
+{.name = "Network address",         .key = "ADR", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Relative power",          .key = "PRL", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Software Version",        .key = "SWV", .unit = ""        , .isData = 1,  .value = 321 },
+{.name = "Solar energy year",       .key = "RYR", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Solar energy day",        .key = "RDY", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Solar energy total",      .key = "RT0", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Solar radiation",         .key = "RAD", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Voltage DC",              .key = "UDC", .unit = ""        , .isData = 1,  .value = 0xA23 },
+{.name = "Voltage Phase 1",         .key = "UL1", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Voltage Phase 2",         .key = "UL2", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Voltage Phase 3",         .key = "UL3", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Current DC",              .key = "IDC", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Current Phase 1",         .key = "IL1", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Current Phase 2",         .key = "IL2", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Current Phase 3",         .key = "IL3", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Tempereture section 1",   .key = "TKK", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Temperature section 2",   .key = "TK2", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Tenoerature section 3",   .key = "TK3", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Solar Cells",             .key = "TSZ", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Typ",                     .key = "TYP", .unit = ""        , .isData = 1,  .value = 123 },
+{.name = "Date",                    .key = "TIME", .unit = ""       , .isData = 0,  .value = 0 },
+{.name = "Minutes",                 .key = "TMI", .unit = ""        , .isData = 0,  .value = 0 },
+{.name = "Hour",                    .key = "THR", .unit = ""        , .isData = 0,  .value = 0 },
 };
 
 typedef enum {
@@ -72,17 +74,50 @@ typedef enum {
     RESPONSE
 } cmd_t;
 
+#define CMD_ARRAY_SIZE      (sizeof(solarmax_cmd) / sizeof(solarmax_cmd_type))
+
 char command_buffer[MAX_CMD_BUF_SIZE];
+char response_buffer[MAX_RESP_BUF_SIZE];
 int cmd_len = 0;
 recv_state cmd_buf_state = WAITING_FOR_START;
 
 
 void solarmax_cmd_process(void);
+void solarmax_store_value(char *cmd, uint32_t value);
+uint32_t solarmax_get_value(char *cmd);
+
+#define CMD_PROCESS_DEBUG
+
+void solarmax_store_value(char *cmd, uint32_t value) {
+    int i;
+
+    for (i=0; i < CMD_ARRAY_SIZE; i++) {
+        if (0 == strcmp(solarmax_cmd[i].key,cmd)) {
+            solarmax_cmd[i].isData = 1;
+            solarmax_cmd[i].value = value;
+            break;
+        }
+    }
+}
+
+uint32_t solarmax_get_value(char *cmd) {
+
+    int i;
+    uint32_t retVal = 0;
+    for (i=0; i< CMD_ARRAY_SIZE; i++) {
+        if (0 == strcmp(solarmax_cmd[i].key,cmd)) {
+            if (solarmax_cmd[i].isData)
+                retVal = solarmax_cmd[i].value;
+        }
+    }
+
+    return retVal;
+}
 
 
-int solarmax_serial_input(char *data, size_t len) {
+uint32_t solarmax_serial_input(char *data, size_t len) {
 char *ptr;
-int retVal = 0;
+uint32_t retVal = 0;
 
     switch(cmd_buf_state)
     {
@@ -163,14 +198,33 @@ uint32_t strtohex(char *ptr, uint8_t len){
   return retVal;
 }
 
-#define CMD_PROCESS_DEBUG
-//char command_buffer[MAX_CMD_BUF_SIZE];
-//int cmd_len = 0;
+uint8_t hextostr(char *dest, uint32_t val) {
+    uint8_t i,len = 0;
+    if (val <= 0xFF) {
+        len = 2;
+    } else if (val <= 0xFFF) {
+        len = 3;
+    } else if (val <= 0xFFFF) {
+        len = 4;
+    }
+
+    for (i=0; i< len; i++) {
+        if ((val&0x0000000f) < 0x0000000a) {
+            dest[i] = ((val&0x0000000f) + 48 );
+        } else {
+            dest[i] = ((val&0x0000000f) + 55 );
+        }
+        val >>= 4;
+    }
+    return len;
+}
+
 void solarmax_process_msg(char *data) {
     uint16_t src_addr;
     uint16_t dest_addr;
     uint16_t length;
     uint16_t port;
+    uint16_t resp_idx = 13;
     char *ptr;
     char *tptr;
     char cmd[5];
@@ -180,12 +234,14 @@ void solarmax_process_msg(char *data) {
 #ifdef CMD_PROCESS_DEBUG
     printf("solarmax_process_msg(%s)\n",data);
 #endif
+    memset(response_buffer,0,sizeof(response_buffer));
     src_addr = strtohex(data,2);
     dest_addr = strtohex(data+3,2);
     length = strtohex(data+6,2);
     //lets find payload start
     //port = strtohex(data+9,2);
     ptr = strstr(data,"|");
+    ptr++;
     port = strtohex(ptr,2);
 
 #ifdef CMD_PROCESS_DEBUG
@@ -196,7 +252,7 @@ void solarmax_process_msg(char *data) {
 #endif
 
     //skip port and :
-    ptr+=4;
+    ptr+=3;
 
     // ABC=33;DEF=00;GHI=12|CRC
     //now search for cmd identifier
@@ -207,6 +263,10 @@ void solarmax_process_msg(char *data) {
         printf("while: %s\n", ptr);
         //get the command, this can end with = or ; dependeing if it is req or response
         int itr = 0;
+        if (*ptr == ';') {
+            //if we have multiple requests, we need to jump over separators
+            *ptr++;
+        }
         while ((*ptr != '=') && (*ptr != ';') && (*ptr != '|')) {
             cmd[itr] = *ptr;
             ptr++;
@@ -215,14 +275,8 @@ void solarmax_process_msg(char *data) {
 
         if (*ptr == '=') {
             cmd_type = RESPONSE;
-#ifdef  CMD_PROCESS_DEBUG
-            printf("CMD RESPONSE: %s\n",cmd);
-#endif               
         } else if (*ptr == ';') {
             cmd_type = REQUEST;
-#ifdef  CMD_PROCESS_DEBUG
-            printf("CMD REQUEST: %s\n",cmd);
-#endif                               
         } else if (*ptr == '|') {
             eodata = 0;        
         }
@@ -239,24 +293,53 @@ void solarmax_process_msg(char *data) {
                 ptr++;
                 itr++;
             }
+            solarmax_store_value(cmd,strtohex(val, sizeof(val)));
             if (*ptr == '|') {
                 eodata = 0;
             }
         } else {
             //prepare response
+            uint32_t val;
+            uint8_t len;
+            val = solarmax_get_value(cmd);
+            len = strlen(cmd);
+            strncpy(&response_buffer[resp_idx],cmd,len);
+            resp_idx += len;
+            response_buffer[resp_idx] = '=';
+            resp_idx++;
+            len = hextostr(&response_buffer[resp_idx], val);
+            resp_idx += len;
+            if (*ptr == '|') {
+                eodata = 0;
+            } else {
+                response_buffer[resp_idx] = ';';
+                resp_idx++;
+                *ptr++;
+            }
+
         }
         printf("CMD_TYPE: %d, cmd: %s val: %s\n",cmd_type,cmd,val);
     }
-#ifdef TEMP_WHILE
-    while (*(ptr+1) == ';') {
-        tptr = strstr(ptr,"=");
-        strncpy(cmd,ptr,(tptr-ptr));
 
-        printf("Cmd: %s",cmd);
-        printf("Value: %s,");
+    if (cmd_type == REQUEST) {
+        char tbf[14];
+        sprintf(tbf,"{%02X:%02X:%02X|%02X:",dest_addr,src_addr,resp_idx+6,port);
+        strncpy(response_buffer,tbf,13);
+        response_buffer[resp_idx] = '|';
+        resp_idx++;
+        uint32_t crc_calc = solarmax_cmd_crc(&response_buffer[1], resp_idx);
+        printf("%d index, %04x crc\n",resp_idx,crc_calc);
+        memset(tbf,0,sizeof(tbf));
+        sprintf(tbf,"%04X}",crc_calc);
+        strncpy(&response_buffer[resp_idx],tbf,5);
 
+        for (int i = 0; i<resp_idx+5; i++ ) {
+            printf("%c",response_buffer[i]);
+            if (response_buffer[i] == 0) printf(".");
+        }
+        printf("\n");
     }
-#endif
+    //if we had a req we need to assamble to response buffer
 }
 
 
